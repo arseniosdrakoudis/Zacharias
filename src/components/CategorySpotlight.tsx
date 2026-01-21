@@ -4,25 +4,28 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-
-const categories = [
-  {
-    id: "watches",
-    title: "Watches",
-    description: "Precision timepieces from the world's most prestigious maisons",
-    image: "/products/category-watches.jpg",
-    href: "#watches",
-  },
-  {
-    id: "jewellery",
-    title: "Jewellery",
-    description: "Exquisite pieces that capture moments and memories",
-    image: "/products/category-jewellery.jpg",
-    href: "#jewellery",
-  },
-];
+import { useLanguage } from "@/i18n";
 
 export function CategorySpotlight() {
+  const { t } = useLanguage();
+
+  const categories = [
+    {
+      id: "watches",
+      title: t.categories.watches.title,
+      description: t.categories.watches.description,
+      image: "/products/category-watches.jpg",
+      href: "#watches",
+    },
+    {
+      id: "jewellery",
+      title: t.categories.jewellery.title,
+      description: t.categories.jewellery.description,
+      image: "/products/category-jewellery.jpg",
+      href: "#jewellery",
+    },
+  ];
+
   return (
     <section id="collections" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -35,10 +38,10 @@ export function CategorySpotlight() {
           className="text-center mb-16"
         >
           <span className="text-sm tracking-[0.2em] uppercase text-burgundy font-medium">
-            Our Collections
+            {t.categories.sectionLabel}
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mt-4">
-            Discover Excellence
+            {t.categories.sectionTitle}
           </h2>
         </motion.div>
 
@@ -77,7 +80,7 @@ export function CategorySpotlight() {
                       {category.description}
                     </p>
                     <div className="flex items-center gap-2 text-burgundy font-medium text-sm group-hover:gap-3 transition-all duration-200">
-                      <span>Explore</span>
+                      <span>{t.common.explore}</span>
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>

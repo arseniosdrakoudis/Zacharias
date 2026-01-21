@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ShieldCheck, Users, Gem, Gift } from "lucide-react";
-import { trustPillars } from "@/data/products";
+import { useLanguage } from "@/i18n";
 
 const iconMap: Record<string, React.ReactNode> = {
   ShieldCheck: <ShieldCheck className="w-8 h-8" />,
@@ -12,6 +12,31 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export function TrustPillars() {
+  const { t } = useLanguage();
+
+  const trustPillars = [
+    {
+      title: t.trust.pillars.authenticity.title,
+      description: t.trust.pillars.authenticity.description,
+      icon: "ShieldCheck",
+    },
+    {
+      title: t.trust.pillars.expertise.title,
+      description: t.trust.pillars.expertise.description,
+      icon: "Users",
+    },
+    {
+      title: t.trust.pillars.craftsmanship.title,
+      description: t.trust.pillars.craftsmanship.description,
+      icon: "Gem",
+    },
+    {
+      title: t.trust.pillars.packaging.title,
+      description: t.trust.pillars.packaging.description,
+      icon: "Gift",
+    },
+  ];
+
   return (
     <section id="about" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -24,10 +49,10 @@ export function TrustPillars() {
           className="text-center mb-16"
         >
           <span className="text-sm tracking-[0.2em] uppercase text-burgundy font-medium">
-            Why Choose Us
+            {t.trust.sectionLabel}
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mt-4">
-            The Zacharias Promise
+            {t.trust.sectionTitle}
           </h2>
         </motion.div>
 

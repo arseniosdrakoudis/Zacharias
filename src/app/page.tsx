@@ -1,3 +1,6 @@
+"use client";
+
+import { LanguageProvider } from "@/i18n";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { CategorySpotlight } from "@/components/CategorySpotlight";
@@ -11,17 +14,19 @@ import { BackToTop } from "@/components/BackToTop";
 
 export default function Home() {
   return (
-    <main>
-      <ScrollProgress />
-      <Navbar />
-      <Hero />
-      <CategorySpotlight />
-      <FeaturedGrid />
-      <TrustPillars />
-      <StoreVisit />
-      <FinalCTA />
-      <Footer />
-      <BackToTop />
-    </main>
+    <LanguageProvider>
+      <main>
+        <ScrollProgress />
+        <Navbar />
+        <Hero />
+        <CategorySpotlight />
+        <FeaturedGrid />
+        <TrustPillars />
+        <StoreVisit />
+        <FinalCTA />
+        <Footer />
+        <BackToTop />
+      </main>
+    </LanguageProvider>
   );
 }

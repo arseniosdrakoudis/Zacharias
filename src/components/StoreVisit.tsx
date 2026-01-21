@@ -5,8 +5,11 @@ import Image from "next/image";
 import { Phone, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { businessInfo } from "@/data/products";
+import { useLanguage } from "@/i18n";
 
 export function StoreVisit() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="py-24 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4 md:px-6">
@@ -21,7 +24,7 @@ export function StoreVisit() {
           >
             <Image
               src="/boutique.png"
-              alt="Zacharias Watches & Jewellery Boutique in Limassol"
+              alt={t.store.imageAlt}
               fill
               className="object-cover"
             />
@@ -35,14 +38,13 @@ export function StoreVisit() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-sm tracking-[0.2em] uppercase text-burgundy font-medium">
-              Visit Us
+              {t.store.sectionLabel}
             </span>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mt-4 mb-6">
-              Our Boutique
+              {t.store.sectionTitle}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8 max-w-md">
-              Experience our collection in person. Our expert team is ready to guide you 
-              through our curated selection of luxury timepieces and exquisite jewellery.
+              {t.store.description}
             </p>
 
             {/* Contact Details */}
@@ -52,7 +54,7 @@ export function StoreVisit() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground mb-1">Address</p>
+                  <p className="font-medium text-foreground mb-1">{t.store.address}</p>
                   <p className="text-muted-foreground text-sm">{businessInfo.address}</p>
                 </div>
               </div>
@@ -62,7 +64,7 @@ export function StoreVisit() {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground mb-1">Phone</p>
+                  <p className="font-medium text-foreground mb-1">{t.store.phone}</p>
                   <a
                     href={businessInfo.phoneLink}
                     className="text-burgundy hover:text-burgundy/80 transition-colors text-sm font-medium"
@@ -77,8 +79,8 @@ export function StoreVisit() {
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground mb-1">Hours</p>
-                  <p className="text-muted-foreground text-sm">Mon–Sat: 10:00 – 19:00</p>
+                  <p className="font-medium text-foreground mb-1">{t.store.hours}</p>
+                  <p className="text-muted-foreground text-sm">{t.store.hoursValue}</p>
                 </div>
               </div>
             </div>
@@ -92,7 +94,7 @@ export function StoreVisit() {
               >
                 <a href={businessInfo.phoneLink} className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  Call {businessInfo.phone}
+                  {t.common.callNow} {businessInfo.phone}
                 </a>
               </Button>
               <Button
@@ -108,7 +110,7 @@ export function StoreVisit() {
                   className="flex items-center gap-2"
                 >
                   <MapPin className="w-4 h-4" />
-                  Get Directions
+                  {t.common.getDirections}
                 </a>
               </Button>
             </div>

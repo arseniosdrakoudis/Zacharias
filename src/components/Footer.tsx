@@ -1,21 +1,39 @@
+"use client";
+
 import Link from "next/link";
-import { Logo } from "./Logo";
-import { navItems, businessInfo } from "@/data/products";
+import Image from "next/image";
+import { businessInfo } from "@/data/products";
 import { Separator } from "@/components/ui/separator";
 import { Phone, MapPin, Instagram, Facebook } from "lucide-react";
+import { useLanguage } from "@/i18n";
 
 export function Footer() {
+  const { t } = useLanguage();
+
+  const navItems = [
+    { label: t.nav.watches, href: "#watches" },
+    { label: t.nav.jewellery, href: "#jewellery" },
+    { label: t.nav.about, href: "/about" },
+    { label: t.nav.contact, href: "/contact" },
+  ];
+
   return (
     <footer className="bg-foreground text-background py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <div className="bg-background p-2 rounded w-fit mb-4">
-              <Logo width={120} height={45} />
+            <div className="mb-4">
+              <Image
+                src="/logo-horizontal-reversed.png"
+                alt="Zacharias Watches & Jewellery"
+                width={160}
+                height={60}
+                className="h-auto"
+              />
             </div>
             <p className="text-background/70 text-sm leading-relaxed max-w-sm mb-6">
-              {businessInfo.description}
+              {t.business.description}
             </p>
             {/* Social Icons */}
             <div className="flex gap-4">
@@ -42,7 +60,7 @@ export function Footer() {
 
           {/* Navigation Column */}
           <div>
-            <h4 className="font-medium text-background mb-4">Navigation</h4>
+            <h4 className="font-medium text-background mb-4">{t.footer.navigation}</h4>
             <ul className="space-y-3">
               {navItems.map((item) => (
                 <li key={item.href}>
@@ -59,7 +77,7 @@ export function Footer() {
 
           {/* Contact Column */}
           <div>
-            <h4 className="font-medium text-background mb-4">Contact</h4>
+            <h4 className="font-medium text-background mb-4">{t.footer.contact}</h4>
             <ul className="space-y-3">
               <li>
                 <a
@@ -82,13 +100,13 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/60">
-          <p>© {new Date().getFullYear()} {businessInfo.name}. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {businessInfo.name}. {t.footer.copyright}</p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-background transition-colors duration-200">
-              Privacy Policy
+              {t.footer.privacy}
             </Link>
             <Link href="#" className="hover:text-background transition-colors duration-200">
-              Terms of Service
+              {t.footer.terms}
             </Link>
           </div>
         </div>

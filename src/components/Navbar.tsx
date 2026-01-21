@@ -6,20 +6,38 @@ import { Menu, Phone } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { navItems, businessInfo } from "@/data/products";
+import { businessInfo } from "@/data/products";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/i18n";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
-export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+interface NavbarProps {
+  forceScrolled?: boolean;
+}
+
+export function Navbar({ forceScrolled = false }: NavbarProps) {
+  const [isScrolled, setIsScrolled] = useState(forceScrolled);
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
+    if (forceScrolled) {
+      setIsScrolled(true);
+      return;
+    }
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [forceScrolled]);
+
+  const navItems = [
+    { label: t.nav.watches, href: "#watches" },
+    { label: t.nav.jewellery, href: "#jewellery" },
+    { label: t.nav.about, href: "/about" },
+    { label: t.nav.contact, href: "/contact" },
+  ];
 
   return (
     <header
@@ -33,7 +51,7 @@ export function Navbar() {
       <nav className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative z-10">
-          <Logo width={220} height={80} />
+          <Logo width={220} height={80} variant={isScrolled ? "normal" : "reversed"} />
         </Link>
 
         {/* Desktop Navigation */}
@@ -57,6 +75,7 @@ export function Navbar() {
 
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-3">
+          <LanguageSwitcher isScrolled={isScrolled} />
           <Button
             variant="outline"
             size="sm"
@@ -67,7 +86,7 @@ export function Navbar() {
                 : "border-white/50 hover:border-white/80"
             )}
           >
-            <Link href="#contact">Book a Visit</Link>
+            <Link href="/contact">{t.common.bookVisit}</Link>
           </Button>
           <Button
             size="sm"
@@ -76,7 +95,7 @@ export function Navbar() {
           >
             <a href={businessInfo.phoneLink} className="flex items-center gap-2">
               <Phone className="w-4 h-4" />
-              Call Now
+              {t.common.callNow}
             </a>
           </Button>
         </div>
@@ -106,10 +125,16 @@ export function Navbar() {
                   </li>
                 ))}
               </ul>
+              
+              {/* Mobile Language Switcher */}
+              <div className="mb-6">
+                <LanguageSwitcher variant="mobile" />
+              </div>
+
               <div className="flex flex-col gap-3 mt-auto mb-8">
                 <Button variant="outline" size="lg" asChild className="w-full">
-                  <Link href="#contact" onClick={() => setIsOpen(false)}>
-                    Book a Visit
+                  <Link href="/contact" onClick={() => setIsOpen(false)}>
+                    {t.common.bookVisit}
                   </Link>
                 </Button>
                 <Button
@@ -119,7 +144,7 @@ export function Navbar() {
                 >
                   <a href={businessInfo.phoneLink} className="flex items-center justify-center gap-2">
                     <Phone className="w-4 h-4" />
-                    Call {businessInfo.phone}
+                    {t.common.callNow} {businessInfo.phone}
                   </a>
                 </Button>
               </div>

@@ -16,14 +16,19 @@ import {
 } from "@/components/ui/dialog";
 import { useState } from "react";
 import { Eye } from "lucide-react";
+import { useLanguage } from "@/i18n";
 
 interface ProductCardProps {
   product: Product;
   index: number;
   onQuickView: (product: Product) => void;
+  translations: {
+    quickView: string;
+    categoryLabel: string;
+  };
 }
 
-function ProductCard({ product, index, onQuickView }: ProductCardProps) {
+function ProductCard({ product, index, onQuickView, translations }: ProductCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -51,11 +56,11 @@ function ProductCard({ product, index, onQuickView }: ProductCardProps) {
           <button
             onClick={() => onQuickView(product)}
             className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-background/60 backdrop-blur-sm cursor-pointer"
-            aria-label={`Quick view ${product.name}`}
+            aria-label={`${translations.quickView} ${product.name}`}
           >
             <span className="flex items-center gap-2 text-foreground font-medium text-sm bg-background/90 px-4 py-2 rounded-full border border-border/50">
               <Eye className="w-4 h-4" />
-              Quick View
+              {translations.quickView}
             </span>
           </button>
         </div>
@@ -66,7 +71,7 @@ function ProductCard({ product, index, onQuickView }: ProductCardProps) {
             variant="secondary"
             className="mb-2 text-xs font-normal bg-burgundy/10 text-burgundy border-0"
           >
-            {product.category}
+            {translations.categoryLabel}
           </Badge>
           <h3 className="font-medium text-foreground text-sm mb-1 line-clamp-1">
             {product.name}
@@ -84,9 +89,15 @@ interface ProductQuickViewProps {
   product: Product | null;
   isOpen: boolean;
   onClose: () => void;
+  translations: {
+    productDetails: string;
+    inquire: string;
+    bookViewing: string;
+    categoryLabel: string;
+  };
 }
 
-export function ProductQuickView({ product, isOpen, onClose }: ProductQuickViewProps) {
+function ProductQuickView({ product, isOpen, onClose, translations }: ProductQuickViewProps) {
   if (!product) return null;
 
   return (
@@ -97,7 +108,7 @@ export function ProductQuickView({ product, isOpen, onClose }: ProductQuickViewP
             {product.name}
           </DialogTitle>
           <DialogDescription className="sr-only">
-            Product details for {product.name}
+            {translations.productDetails} {product.name}
           </DialogDescription>
         </DialogHeader>
         <div className="grid md:grid-cols-2 gap-6 mt-4">
@@ -117,7 +128,7 @@ export function ProductQuickView({ product, isOpen, onClose }: ProductQuickViewP
               variant="secondary"
               className="w-fit mb-4 bg-burgundy/10 text-burgundy border-0"
             >
-              {product.category}
+              {translations.categoryLabel}
             </Badge>
             
             {product.price && (
@@ -134,10 +145,10 @@ export function ProductQuickView({ product, isOpen, onClose }: ProductQuickViewP
 
             <div className="flex flex-col gap-3 mt-auto">
               <Button className="bg-burgundy hover:bg-burgundy/90 text-white">
-                Inquire About This Piece
+                {translations.inquire}
               </Button>
               <Button variant="outline" className="border-foreground/20">
-                Book a Viewing
+                {translations.bookViewing}
               </Button>
             </div>
           </div>
@@ -150,10 +161,19 @@ export function ProductQuickView({ product, isOpen, onClose }: ProductQuickViewP
 export function FeaturedGrid() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+  const { t } = useLanguage();
 
   const handleQuickView = (product: Product) => {
     setSelectedProduct(product);
     setIsQuickViewOpen(true);
+  };
+
+  // Get translated category label
+  const getCategoryLabel = (category: string) => {
+    if (category.toLowerCase() === "watch") {
+      return t.productCategories.watch;
+    }
+    return t.productCategories.jewellery;
   };
 
   return (
@@ -168,14 +188,13 @@ export function FeaturedGrid() {
           className="text-center mb-16"
         >
           <span className="text-sm tracking-[0.2em] uppercase text-burgundy font-medium">
-            Featured Selection
+            {t.featured.sectionLabel}
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mt-4">
-            Best Sellers
+            {t.featured.sectionTitle}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Discover our most sought-after timepieces and jewellery, 
-            each chosen for its exceptional quality and timeless appeal.
+            {t.featured.sectionDescription}
           </p>
         </motion.div>
 
@@ -187,6 +206,10 @@ export function FeaturedGrid() {
               product={product}
               index={index}
               onQuickView={handleQuickView}
+              translations={{
+                quickView: t.featured.quickView,
+                categoryLabel: getCategoryLabel(product.category),
+              }}
             />
           ))}
         </div>
@@ -196,6 +219,12 @@ export function FeaturedGrid() {
           product={selectedProduct}
           isOpen={isQuickViewOpen}
           onClose={() => setIsQuickViewOpen(false)}
+          translations={{
+            productDetails: t.featured.productDetails,
+            inquire: t.featured.inquire,
+            bookViewing: t.featured.bookViewing,
+            categoryLabel: selectedProduct ? getCategoryLabel(selectedProduct.category) : "",
+          }}
         />
       </div>
     </section>
