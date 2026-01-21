@@ -1,0 +1,27 @@
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { CategorySpotlight } from "@/components/CategorySpotlight";
+import { FeaturedGrid } from "@/components/FeaturedGrid";
+import { TrustPillars } from "@/components/TrustPillars";
+import { StoreVisit } from "@/components/StoreVisit";
+import { FinalCTA } from "@/components/FinalCTA";
+import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { BackToTop } from "@/components/BackToTop";
+
+export default function Home() {
+  return (
+    <main>
+      <ScrollProgress />
+      <Navbar />
+      <Hero />
+      <CategorySpotlight />
+      <FeaturedGrid />
+      <TrustPillars />
+      <StoreVisit />
+      <FinalCTA />
+      <Footer />
+      <BackToTop />
+    </main>
+  );
+}
