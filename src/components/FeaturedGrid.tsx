@@ -152,7 +152,7 @@ function ProductQuickView({ product, isOpen, onClose, translations }: ProductQui
 
             <div className="flex flex-col gap-3 mt-auto">
               <Button asChild className="bg-burgundy hover:bg-burgundy/90 text-white">
-                <Link href={`/product/${product.id}`}>
+                <Link href={`/product/${product.id}`} onClick={() => window.scrollTo(0, 0)}>
                   {translations.viewDetails}
                 </Link>
               </Button>
