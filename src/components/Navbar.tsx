@@ -108,45 +108,61 @@ export function Navbar({ forceScrolled = false }: NavbarProps) {
               <span className="sr-only">Open menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-80 bg-background">
+          <SheetContent side="right" className="w-[85vw] max-w-[320px] p-0 border-l border-border/50 bg-gradient-to-b from-background via-background to-muted/30">
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            <div className="flex flex-col h-full pt-8">
-              <Logo width={180} height={65} className="mb-8" />
-              <ul className="flex flex-col gap-4 mb-8">
-                {navItems.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-lg font-medium text-foreground/80 hover:text-foreground transition-colors duration-200"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              
-              {/* Mobile Language Switcher */}
-              <div className="mb-6">
-                <LanguageSwitcher variant="mobile" />
+            <div className="flex flex-col h-full">
+              {/* Header with logo */}
+              <div className="px-6 pt-6 pb-4 border-b border-border/30 bg-gradient-to-r from-burgundy/5 to-transparent">
+                <Logo width={180} height={65} />
               </div>
+              
+              {/* Navigation Links */}
+              <nav className="flex-1 px-6 py-6">
+                <ul className="flex flex-col gap-1">
+                  {navItems.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="block py-3 text-lg font-medium text-foreground/80 hover:text-burgundy transition-colors duration-200 border-b border-border/20 hover:border-burgundy/30"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                
+                {/* Mobile Language Switcher */}
+                <div className="mt-6 pt-4 border-t border-border/30">
+                  <p className="text-sm text-muted-foreground mb-3 font-medium">Language</p>
+                  <LanguageSwitcher variant="mobile" />
+                </div>
+              </nav>
 
-              <div className="flex flex-col gap-3 mt-auto mb-8">
-                <Button variant="outline" size="lg" asChild className="w-full">
-                  <Link href="/contact" onClick={() => setIsOpen(false)}>
-                    {t.common.bookVisit}
-                  </Link>
-                </Button>
-                <Button
-                  size="lg"
-                  asChild
-                  className="w-full bg-burgundy hover:bg-burgundy/90 text-white"
-                >
-                  <a href={businessInfo.phoneLink} className="flex items-center justify-center gap-2">
-                    <Phone className="w-4 h-4" />
-                    {t.common.callNow} {businessInfo.phone}
-                  </a>
-                </Button>
+              {/* Footer CTAs */}
+              <div className="px-6 py-6 border-t border-border/30 bg-gradient-to-t from-muted/40 to-transparent">
+                <div className="flex flex-col gap-3">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    asChild 
+                    className="w-full border-foreground/20 hover:border-burgundy/50 hover:bg-burgundy/5"
+                  >
+                    <Link href="/contact" onClick={() => setIsOpen(false)}>
+                      {t.common.bookVisit}
+                    </Link>
+                  </Button>
+                  <Button
+                    size="lg"
+                    asChild
+                    className="w-full bg-burgundy hover:bg-burgundy/90 text-white shadow-lg shadow-burgundy/20"
+                  >
+                    <a href={businessInfo.phoneLink} className="flex items-center justify-center gap-2">
+                      <Phone className="w-4 h-4" />
+                      {t.common.callNow} {businessInfo.phone}
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
           </SheetContent>
