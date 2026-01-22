@@ -7,29 +7,19 @@ import { products } from "@/data/products";
 import { Product } from "@/types";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
-import { useState } from "react";
 import { Eye } from "lucide-react";
 import { useLanguage } from "@/i18n";
 
 interface ProductCardProps {
   product: Product;
   index: number;
-  onQuickView: (product: Product) => void;
   translations: {
-    quickView: string;
+    viewProduct: string;
     categoryLabel: string;
   };
 }
 
-function ProductCard({ product, index, onQuickView, translations }: ProductCardProps) {
+function ProductCard({ product, index, translations }: ProductCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -49,26 +39,13 @@ function ProductCard({ product, index, onQuickView, translations }: ProductCardP
               className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
             />
             
-            {/* Always-visible view hint */}
-            <div className="absolute top-3 right-3 p-2 rounded-full bg-background/80 text-muted-foreground opacity-60 group-hover:opacity-0 transition-opacity pointer-events-none">
-              <Eye className="w-3 h-3" />
-            </div>
-            
-            {/* Quick View Button */}
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                onQuickView(product);
-              }}
-              className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-background/60 backdrop-blur-sm cursor-pointer"
-              aria-label={`${translations.quickView} ${product.name}`}
-            >
+            {/* View Product Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-background/60 backdrop-blur-sm">
               <span className="flex items-center gap-2 text-foreground font-medium text-sm bg-background/90 px-4 py-2 rounded-full border border-border/50">
                 <Eye className="w-4 h-4" />
-                {translations.quickView}
+                {translations.viewProduct}
               </span>
-            </button>
+            </div>
           </div>
 
           {/* Content */}
@@ -92,92 +69,8 @@ function ProductCard({ product, index, onQuickView, translations }: ProductCardP
   );
 }
 
-interface ProductQuickViewProps {
-  product: Product | null;
-  isOpen: boolean;
-  onClose: () => void;
-  translations: {
-    productDetails: string;
-    viewDetails: string;
-    inquire: string;
-    categoryLabel: string;
-  };
-}
-
-function ProductQuickView({ product, isOpen, onClose, translations }: ProductQuickViewProps) {
-  if (!product) return null;
-
-  return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl bg-background border-border/50">
-        <DialogHeader>
-          <DialogTitle className="font-serif text-2xl font-medium">
-            {product.name}
-          </DialogTitle>
-          <DialogDescription className="sr-only">
-            {translations.productDetails} {product.name}
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid md:grid-cols-2 gap-6 mt-4">
-          {/* Product Image */}
-          <div className="relative aspect-square rounded-lg overflow-hidden bg-white">
-            <Image
-              src={product.image}
-              alt={product.name}
-              fill
-              className="object-contain p-4"
-            />
-          </div>
-
-          {/* Product Details */}
-          <div className="flex flex-col">
-            <Badge
-              variant="secondary"
-              className="w-fit mb-4 bg-burgundy/10 text-burgundy border-0"
-            >
-              {translations.categoryLabel}
-            </Badge>
-            
-            {product.price && (
-              <p className="text-2xl font-medium text-foreground mb-4">
-                {product.price}
-              </p>
-            )}
-            
-            {product.shortDescription && (
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                {product.shortDescription}
-              </p>
-            )}
-
-            <div className="flex flex-col gap-3 mt-auto">
-              <Button asChild className="bg-burgundy hover:bg-burgundy/90 text-white">
-                <Link href={`/product/${product.id}`} onClick={() => window.scrollTo(0, 0)}>
-                  {translations.viewDetails}
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="border-foreground/20">
-                <Link href="/contact">
-                  {translations.inquire}
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </DialogContent>
-    </Dialog>
-  );
-}
-
 export function FeaturedGrid() {
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
   const { t } = useLanguage();
-
-  const handleQuickView = (product: Product) => {
-    setSelectedProduct(product);
-    setIsQuickViewOpen(true);
-  };
 
   // Get translated category label
   const getCategoryLabel = (category: string) => {
@@ -216,27 +109,13 @@ export function FeaturedGrid() {
               key={product.id}
               product={product}
               index={index}
-              onQuickView={handleQuickView}
               translations={{
-                quickView: t.featured.quickView,
+                viewProduct: t.featured.viewDetails,
                 categoryLabel: getCategoryLabel(product.category),
               }}
             />
           ))}
         </div>
-
-        {/* Quick View Modal */}
-        <ProductQuickView
-          product={selectedProduct}
-          isOpen={isQuickViewOpen}
-          onClose={() => setIsQuickViewOpen(false)}
-          translations={{
-            productDetails: t.featured.productDetails,
-            viewDetails: t.featured.viewDetails,
-            inquire: t.productPage.inquire,
-            categoryLabel: selectedProduct ? getCategoryLabel(selectedProduct.category) : "",
-          }}
-        />
       </div>
     </section>
   );
