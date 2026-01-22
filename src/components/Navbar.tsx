@@ -108,7 +108,7 @@ export function Navbar({ forceScrolled = false }: NavbarProps) {
               <span className="sr-only">Open menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[85vw] max-w-[320px] p-0 border-l border-border/50 bg-gradient-to-b from-background via-background to-muted/30">
+          <SheetContent side="right" className="w-[85vw] max-w-[320px] p-0 border-l border-border/50 bg-background">
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
             <div className="flex flex-col h-full">
               {/* Header with logo */}
