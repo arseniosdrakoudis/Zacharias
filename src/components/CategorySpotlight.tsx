@@ -15,14 +15,14 @@ export function CategorySpotlight() {
       title: t.categories.watches.title,
       description: t.categories.watches.description,
       image: "/products/category-watches.jpg",
-      href: "#watches",
+      href: "/watches",
     },
     {
       id: "jewellery",
       title: t.categories.jewellery.title,
       description: t.categories.jewellery.description,
       image: "/products/category-jewellery.jpg",
-      href: "#jewellery",
+      href: "/jewellery",
     },
   ];
 

@@ -1,55 +1,7 @@
 import { Product, NavItem, TrustPillar } from "@/types";
+import productsData from "./products.json";
 
-export const products: Product[] = [
-  {
-    id: "1",
-    name: "Patek Philippe Nautilus",
-    category: "Watch",
-    price: "€45,000",
-    image: "/products/patek-nautilus.png",
-    description: "Iconic luxury sports watch with distinctive porthole design",
-  },
-  {
-    id: "2",
-    name: "Cartier Love Bracelet",
-    category: "Jewellery",
-    price: "€6,900",
-    image: "/products/cartier-love.png",
-    description: "Timeless symbol of enduring love in 18k gold",
-  },
-  {
-    id: "3",
-    name: "Rolex Submariner",
-    category: "Watch",
-    price: "€12,500",
-    image: "/products/rolex-submariner.png",
-    description: "The quintessential diver's watch, refined since 1953",
-  },
-  {
-    id: "4",
-    name: "Bvlgari Serpenti Tubogas",
-    category: "Watch",
-    price: "€18,200",
-    image: "/products/bvlgari-serpenti.jpg",
-    description: "Serpentine elegance with iconic coiled design in 18k gold",
-  },
-  {
-    id: "5",
-    name: "Omega Speedmaster",
-    category: "Watch",
-    price: "€7,800",
-    image: "/products/omega-speedmaster.png",
-    description: "The first watch worn on the moon",
-  },
-  {
-    id: "6",
-    name: "Tiffany & Co. Diamond Ring",
-    category: "Jewellery",
-    price: "€15,000",
-    image: "/products/tiffany-ring.png",
-    description: "Exceptional brilliance, exceptional craftsmanship",
-  },
-];
+export const products: Product[] = productsData as Product[];
 
 export const navItems: NavItem[] = [
   { label: "Watches", href: "#watches" },

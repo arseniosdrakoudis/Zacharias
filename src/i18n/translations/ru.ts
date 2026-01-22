@@ -51,6 +51,7 @@ export const ru = {
     sectionDescription:
       "Откройте для себя наши самые востребованные часы и украшения, каждое из которых выбрано за исключительное качество и вневременную привлекательность.",
     quickView: "Быстрый Просмотр",
+    viewDetails: "Подробнее",
     inquire: "Узнать об Этом Изделии",
     bookViewing: "Записаться на Просмотр",
     productDetails: "Детали товара для",
@@ -106,6 +107,7 @@ export const ru = {
   footer: {
     navigation: "Навигация",
     contact: "Контакты",
+    findUs: "Найти нас",
     copyright: "Все права защищены.",
     privacy: "Политика Конфиденциальности",
     terms: "Условия Использования",
@@ -115,6 +117,48 @@ export const ru = {
   productCategories: {
     watch: "Часы",
     jewellery: "Украшение",
+  },
+
+  // Product Page
+  productPage: {
+    backToCollection: "Назад к Коллекции",
+    inquire: "Узнать об Этом Изделии",
+    bookViewing: "Записаться на Приватный Просмотр",
+    productNotFound: "Товар Не Найден",
+    productNotFoundDescription: "Товар, который вы ищете, не существует или был удалён.",
+    specifications: "Характеристики",
+    materials: "Материалы",
+    features: "Особенности",
+  },
+
+  // Catalog Page
+  catalogPage: {
+    sectionLabel: "Наша Коллекция",
+    watchesTitle: "Роскошные Часы",
+    watchesDescription: "Откройте для себя нашу тщательно подобранную коллекцию исключительных часов от самых престижных домов мира.",
+    jewelleryTitle: "Изысканные Украшения",
+    jewelleryDescription: "Исследуйте нашу изысканную коллекцию ювелирных изделий, созданных для празднования самых драгоценных моментов жизни.",
+    searchPlaceholder: "Поиск товаров...",
+    filters: "Фильтры",
+    sexLabel: "Для",
+    typeLabel: "Тип",
+    clearFilters: "Сбросить фильтры",
+    showingResults: "Показано {count} из {total} товаров",
+    noResults: "Нет товаров, соответствующих вашим критериям.",
+    sexOptions: {
+      Men: "Мужские",
+      Women: "Женские",
+      Unisex: "Унисекс",
+    },
+    typeOptions: {
+      Automatic: "Автоматические",
+      Quartz: "Кварцевые",
+      Manual: "Механические",
+      Ring: "Кольцо",
+      Bracelet: "Браслет",
+      Necklace: "Колье",
+      Earrings: "Серьги",
+    },
   },
 
   // Business Info
@@ -131,6 +175,10 @@ export const ru = {
       "Мы будем рады услышать вас. Если у вас есть вопросы о наших коллекциях, услугах или чём-то ещё, наша команда готова ответить на все ваши вопросы.",
     formTitle: "Отправьте нам Сообщение",
     formSubtitle: "Заполните форму ниже, и мы свяжемся с вами в ближайшее время.",
+    nameLabel: "Ваше Имя",
+    namePlaceholder: "Введите ваше полное имя",
+    phoneLabel: "Ваш Телефон",
+    phonePlaceholder: "Введите ваш номер телефона",
     emailLabel: "Ваш Email",
     emailPlaceholder: "Введите ваш email адрес",
     messageLabel: "Ваше Сообщение",

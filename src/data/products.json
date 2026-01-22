@@ -1,0 +1,417 @@
+[
+  {
+    "id": "1",
+    "name": "Patek Philippe Nautilus",
+    "category": "Watch",
+    "sex": "Men",
+    "productType": "Automatic",
+    "isBestSeller": true,
+    "price": "€45,000",
+    "image": "/products/patek-nautilus.png",
+    "shortDescription": "Iconic luxury sports watch with distinctive porthole design.",
+    "description": "Iconic luxury sports watch with distinctive porthole design. The Nautilus is celebrated for its elegant yet sporty character, combining exceptional mechanical craftsmanship with everyday wearability. A masterpiece that transcends trends and generations.",
+    "details": {
+      "specifications": [
+        { "label": "Reference", "value": "5711/1A-010" },
+        { "label": "Movement", "value": "Caliber 26-330 S C" },
+        { "label": "Case Size", "value": "40mm" },
+        { "label": "Water Resistance", "value": "120 meters" },
+        { "label": "Power Reserve", "value": "45 hours" },
+        { "label": "Crystal", "value": "Sapphire" }
+      ],
+      "materials": ["Stainless Steel Case", "Stainless Steel Bracelet", "Blue-Black Gradient Dial"],
+      "features": ["Self-winding Movement", "Date Display", "Luminescent Hands", "Fold-over Clasp"]
+    }
+  },
+  {
+    "id": "2",
+    "name": "Cartier Love Bracelet",
+    "category": "Jewellery",
+    "sex": "Unisex",
+    "productType": "Bracelet",
+    "isBestSeller": true,
+    "price": "€6,900",
+    "image": "/products/cartier-love.png",
+    "shortDescription": "Timeless symbol of enduring love in 18k gold.",
+    "description": "Timeless symbol of enduring love in 18k gold. Since its creation in 1969, the Love bracelet has become one of the most iconic pieces of jewelry in the world. Its unique fastening system requires a special screwdriver, symbolizing the commitment between two people.",
+    "details": {
+      "specifications": [
+        { "label": "Collection", "value": "Love" },
+        { "label": "Width", "value": "6.1mm" },
+        { "label": "Available Sizes", "value": "16-21" },
+        { "label": "Motif", "value": "Screw Motif" }
+      ],
+      "materials": ["18K Yellow Gold", "Polished Finish"],
+      "features": ["Iconic Screw Motifs", "Special Screwdriver Included", "Timeless Design", "Unisex Style"]
+    }
+  },
+  {
+    "id": "3",
+    "name": "Rolex Submariner",
+    "category": "Watch",
+    "sex": "Men",
+    "productType": "Automatic",
+    "isBestSeller": true,
+    "price": "€12,500",
+    "image": "/products/rolex-submariner.png",
+    "shortDescription": "The quintessential diver's watch, refined since 1953.",
+    "description": "The quintessential diver's watch, refined since 1953. The Submariner set the standard for diving watches and has become an icon of adventure and achievement. Its robust construction and timeless design make it equally at home underwater or at a formal dinner.",
+    "details": {
+      "specifications": [
+        { "label": "Reference", "value": "126610LN" },
+        { "label": "Movement", "value": "Caliber 3235" },
+        { "label": "Case Size", "value": "41mm" },
+        { "label": "Water Resistance", "value": "300 meters" },
+        { "label": "Power Reserve", "value": "70 hours" },
+        { "label": "Bezel", "value": "Unidirectional Ceramic" }
+      ],
+      "materials": ["Oystersteel Case", "Oystersteel Bracelet", "Black Cerachrom Bezel"],
+      "features": ["Chronometer Certified", "Date with Cyclops Lens", "Oysterlock Clasp", "Glidelock Extension"]
+    }
+  },
+  {
+    "id": "4",
+    "name": "Bvlgari Serpenti Tubogas",
+    "category": "Watch",
+    "sex": "Women",
+    "productType": "Quartz",
+    "isBestSeller": true,
+    "price": "€18,200",
+    "image": "/products/bvlgari-serpenti.jpg",
+    "shortDescription": "Serpentine elegance with iconic coiled design in 18k gold.",
+    "description": "Serpentine elegance with iconic coiled design in 18k gold. The Serpenti collection draws inspiration from the snake, an ancient symbol of wisdom, vitality, and seduction. This timepiece wraps around the wrist in a fluid embrace of precious gold.",
+    "details": {
+      "specifications": [
+        { "label": "Collection", "value": "Serpenti Tubogas" },
+        { "label": "Movement", "value": "Quartz" },
+        { "label": "Case Size", "value": "35mm" },
+        { "label": "Water Resistance", "value": "30 meters" },
+        { "label": "Dial", "value": "Black Lacquered" }
+      ],
+      "materials": ["18K Rose Gold Case", "18K Rose Gold Tubogas Bracelet", "Diamond Bezel"],
+      "features": ["Iconic Serpent Head Design", "Flexible Tubogas Bracelet", "Diamond Setting", "Italian Craftsmanship"]
+    }
+  },
+  {
+    "id": "5",
+    "name": "Omega Speedmaster",
+    "category": "Watch",
+    "sex": "Men",
+    "productType": "Automatic",
+    "isBestSeller": true,
+    "price": "€7,800",
+    "image": "/products/omega-speedmaster.png",
+    "shortDescription": "The first watch worn on the moon.",
+    "description": "The first watch worn on the moon. Since NASA's selection for all manned space missions in 1965, the Speedmaster has been part of humanity's greatest adventures. This legendary chronograph combines space-tested reliability with timeless design.",
+    "details": {
+      "specifications": [
+        { "label": "Reference", "value": "310.30.42.50.01.001" },
+        { "label": "Movement", "value": "Co-Axial Master Chronometer 3861" },
+        { "label": "Case Size", "value": "42mm" },
+        { "label": "Water Resistance", "value": "50 meters" },
+        { "label": "Power Reserve", "value": "50 hours" },
+        { "label": "Crystal", "value": "Hesalite" }
+      ],
+      "materials": ["Stainless Steel Case", "Stainless Steel Bracelet", "Black Step Dial"],
+      "features": ["Chronograph Function", "Tachymeter Scale", "METAS Certified", "NASA Flight Qualified"]
+    }
+  },
+  {
+    "id": "6",
+    "name": "Tiffany & Co. Diamond Ring",
+    "category": "Jewellery",
+    "sex": "Women",
+    "productType": "Ring",
+    "isBestSeller": true,
+    "price": "€15,000",
+    "image": "/products/tiffany-ring.png",
+    "shortDescription": "Exceptional brilliance, exceptional craftsmanship.",
+    "description": "Exceptional brilliance, exceptional craftsmanship. This stunning diamond ring showcases Tiffany's legendary expertise in selecting and setting the world's finest diamonds. Each stone is hand-selected for its exceptional quality and brilliance.",
+    "details": {
+      "specifications": [
+        { "label": "Collection", "value": "Tiffany Setting" },
+        { "label": "Center Stone", "value": "1.0 Carat Round Brilliant" },
+        { "label": "Cut Grade", "value": "Excellent" },
+        { "label": "Color", "value": "F" },
+        { "label": "Clarity", "value": "VS1" }
+      ],
+      "materials": ["Platinum Band", "Natural Diamond", "Six-Prong Setting"],
+      "features": ["GIA Certified Diamond", "Signature Tiffany Setting", "Lifetime Service", "Blue Box Presentation"]
+    }
+  },
+  {
+    "id": "7",
+    "name": "Audemars Piguet Royal Oak",
+    "category": "Watch",
+    "sex": "Men",
+    "productType": "Automatic",
+    "isBestSeller": false,
+    "price": "€38,500",
+    "image": "/products/ap-royal-oak.png",
+    "shortDescription": "The original luxury sports watch with octagonal bezel.",
+    "description": "The original luxury sports watch with octagonal bezel. Designed by Gérald Genta in 1972, the Royal Oak revolutionized the watch industry. Its distinctive octagonal bezel with exposed screws and integrated bracelet created an entirely new category of haute horlogerie.",
+    "details": {
+      "specifications": [
+        { "label": "Reference", "value": "15500ST.OO.1220ST.01" },
+        { "label": "Movement", "value": "Caliber 4302" },
+        { "label": "Case Size", "value": "41mm" },
+        { "label": "Water Resistance", "value": "50 meters" },
+        { "label": "Power Reserve", "value": "70 hours" },
+        { "label": "Crystal", "value": "Sapphire" }
+      ],
+      "materials": ["Stainless Steel Case", "Integrated Steel Bracelet", "Blue Tapisserie Dial"],
+      "features": ["Octagonal Bezel", "Integrated Bracelet", "Date Display", "See-through Caseback"]
+    }
+  },
+  {
+    "id": "8",
+    "name": "Van Cleef & Arpels Alhambra Necklace",
+    "category": "Jewellery",
+    "sex": "Women",
+    "productType": "Necklace",
+    "isBestSeller": false,
+    "price": "€4,200",
+    "image": "/products/vca-alhambra.png",
+    "shortDescription": "Iconic four-leaf clover motif in mother of pearl.",
+    "description": "Iconic four-leaf clover motif in mother of pearl. The Alhambra collection, created in 1968, has become a symbol of luck, health, fortune, and love. Each piece features the signature beaded contour and luminous mother of pearl center.",
+    "details": {
+      "specifications": [
+        { "label": "Collection", "value": "Vintage Alhambra" },
+        { "label": "Chain Length", "value": "42cm" },
+        { "label": "Motif Size", "value": "15mm" },
+        { "label": "Clasp", "value": "Lobster Claw" }
+      ],
+      "materials": ["18K Yellow Gold", "Mother of Pearl", "Beaded Contour"],
+      "features": ["Iconic Four-Leaf Motif", "Adjustable Chain", "Signature Hallmark", "Maison Craftsmanship"]
+    }
+  },
+  {
+    "id": "9",
+    "name": "Cartier Tank Française",
+    "category": "Watch",
+    "sex": "Women",
+    "productType": "Quartz",
+    "isBestSeller": false,
+    "price": "€8,900",
+    "image": "/products/cartier-tank.png",
+    "shortDescription": "Art Deco elegance meets modern sophistication.",
+    "description": "Art Deco elegance meets modern sophistication. The Tank Française, launched in 1996, features a more robust design with curved case and integrated bracelet, while maintaining the geometric elegance that has defined the Tank collection since 1917.",
+    "details": {
+      "specifications": [
+        { "label": "Reference", "value": "WSTA0065" },
+        { "label": "Movement", "value": "Quartz" },
+        { "label": "Case Size", "value": "25.7 x 21.2mm" },
+        { "label": "Water Resistance", "value": "30 meters" },
+        { "label": "Dial", "value": "Silvered" }
+      ],
+      "materials": ["Stainless Steel Case", "Integrated Steel Bracelet", "Blue Sword-Shaped Hands"],
+      "features": ["Roman Numerals", "Octagonal Crown with Sapphire", "Secret Signature at 7 O'Clock", "Art Deco Design"]
+    }
+  },
+  {
+    "id": "10",
+    "name": "Chopard Happy Diamonds Earrings",
+    "category": "Jewellery",
+    "sex": "Women",
+    "productType": "Earrings",
+    "isBestSeller": false,
+    "price": "€5,800",
+    "image": "/products/chopard-earrings.png",
+    "shortDescription": "Dancing diamonds in an elegant round setting.",
+    "description": "Dancing diamonds in an elegant round setting. The Happy Diamonds collection features freely moving diamonds between two sapphire crystals, creating a playful dance of light with every movement. A celebration of joy and feminine elegance.",
+    "details": {
+      "specifications": [
+        { "label": "Collection", "value": "Happy Diamonds" },
+        { "label": "Diameter", "value": "10mm" },
+        { "label": "Diamonds", "value": "6 Floating" },
+        { "label": "Carat Weight", "value": "0.30ct Total" }
+      ],
+      "materials": ["18K White Gold", "Floating Diamonds", "Sapphire Crystal"],
+      "features": ["Dancing Diamonds", "Secure Butterfly Backs", "Swiss Craftsmanship", "Ethical Gold"]
+    }
+  },
+  {
+    "id": "11",
+    "name": "IWC Portugieser Chronograph",
+    "category": "Watch",
+    "sex": "Men",
+    "productType": "Automatic",
+    "isBestSeller": false,
+    "price": "€9,450",
+    "image": "/products/iwc-portugieser.png",
+    "shortDescription": "Classic chronograph with nautical heritage.",
+    "description": "Classic chronograph with nautical heritage. The Portugieser, born in 1939, was created for Portuguese merchants who demanded marine chronometer precision in a wristwatch. Its clean dial and refined proportions have made it a dress watch icon.",
+    "details": {
+      "specifications": [
+        { "label": "Reference", "value": "IW371605" },
+        { "label": "Movement", "value": "Caliber 69355" },
+        { "label": "Case Size", "value": "41mm" },
+        { "label": "Water Resistance", "value": "30 meters" },
+        { "label": "Power Reserve", "value": "46 hours" },
+        { "label": "Crystal", "value": "Sapphire, Domed" }
+      ],
+      "materials": ["Stainless Steel Case", "Black Alligator Leather Strap", "Silver-Plated Dial"],
+      "features": ["Chronograph Function", "Small Seconds", "See-through Caseback", "Applied Hour Markers"]
+    }
+  },
+  {
+    "id": "12",
+    "name": "David Yurman Cable Bracelet",
+    "category": "Jewellery",
+    "sex": "Women",
+    "productType": "Bracelet",
+    "isBestSeller": false,
+    "price": "€1,850",
+    "image": "/products/david-yurman-cable.png",
+    "shortDescription": "Signature twisted cable design in sterling silver.",
+    "description": "Signature twisted cable design in sterling silver. The Cable collection, David Yurman's most iconic design, features the distinctive helix pattern inspired by twisted rope. This timeless bracelet can be worn alone or stacked for a personalized look.",
+    "details": {
+      "specifications": [
+        { "label": "Collection", "value": "Cable Classics" },
+        { "label": "Width", "value": "5mm" },
+        { "label": "Diameter", "value": "Medium" },
+        { "label": "Closure", "value": "Hook Clasp" }
+      ],
+      "materials": ["Sterling Silver", "14K Yellow Gold Accents", "Polished Finish"],
+      "features": ["Signature Cable Design", "Stackable", "Comfortable Fit", "American Craftsmanship"]
+    }
+  },
+  {
+    "id": "13",
+    "name": "Tudor Black Bay",
+    "category": "Watch",
+    "sex": "Unisex",
+    "productType": "Automatic",
+    "isBestSeller": false,
+    "price": "€4,100",
+    "image": "/products/tudor-black-bay.png",
+    "shortDescription": "Heritage-inspired diver with modern reliability.",
+    "description": "Heritage-inspired diver with modern reliability. The Black Bay pays tribute to Tudor's diving heritage while incorporating cutting-edge technology. Its vintage-inspired design and robust construction offer exceptional value in the luxury dive watch segment.",
+    "details": {
+      "specifications": [
+        { "label": "Reference", "value": "M79230N-0009" },
+        { "label": "Movement", "value": "Caliber MT5602" },
+        { "label": "Case Size", "value": "41mm" },
+        { "label": "Water Resistance", "value": "200 meters" },
+        { "label": "Power Reserve", "value": "70 hours" },
+        { "label": "Bezel", "value": "Unidirectional Aluminum" }
+      ],
+      "materials": ["Stainless Steel Case", "Fabric Strap with Steel Buckle", "Black Dial"],
+      "features": ["Snowflake Hands", "Luminescent Indices", "COSC Certified", "Vintage-Inspired Design"]
+    }
+  },
+  {
+    "id": "14",
+    "name": "Mikimoto Pearl Strand",
+    "category": "Jewellery",
+    "sex": "Women",
+    "productType": "Necklace",
+    "isBestSeller": false,
+    "price": "€8,500",
+    "image": "/products/mikimoto-pearls.png",
+    "shortDescription": "Perfectly matched Akoya cultured pearls.",
+    "description": "Perfectly matched Akoya cultured pearls. Mikimoto, the creator of the cultured pearl, continues to set the standard for pearl quality. Each strand is meticulously matched for size, shape, color, and luster to create a harmonious graduated appearance.",
+    "details": {
+      "specifications": [
+        { "label": "Collection", "value": "Essential" },
+        { "label": "Pearl Size", "value": "7.0-7.5mm" },
+        { "label": "Length", "value": "18 inches" },
+        { "label": "Clasp", "value": "18K White Gold" }
+      ],
+      "materials": ["Akoya Cultured Pearls", "18K White Gold Clasp", "Silk Thread"],
+      "features": ["AAA Grade Pearls", "Graduated Sizing", "Hand-Knotted", "Certificate of Authenticity"]
+    }
+  },
+  {
+    "id": "15",
+    "name": "TAG Heuer Monaco",
+    "category": "Watch",
+    "sex": "Men",
+    "productType": "Automatic",
+    "isBestSeller": false,
+    "price": "€6,950",
+    "image": "/products/tag-monaco.png",
+    "shortDescription": "The iconic square chronograph made famous by Steve McQueen.",
+    "description": "The iconic square chronograph made famous by Steve McQueen. Introduced in 1969, the Monaco was the world's first automatic chronograph and the first water-resistant square watch. Its bold design and racing heritage continue to captivate collectors.",
+    "details": {
+      "specifications": [
+        { "label": "Reference", "value": "CBL2111.BA0644" },
+        { "label": "Movement", "value": "Caliber Heuer 02" },
+        { "label": "Case Size", "value": "39mm" },
+        { "label": "Water Resistance", "value": "100 meters" },
+        { "label": "Power Reserve", "value": "80 hours" },
+        { "label": "Crystal", "value": "Sapphire" }
+      ],
+      "materials": ["Stainless Steel Case", "Steel Bracelet", "Blue Dial"],
+      "features": ["Square Case", "Chronograph", "Date Display", "Racing Heritage"]
+    }
+  },
+  {
+    "id": "16",
+    "name": "Buccellati Macri Classica Bracelet",
+    "category": "Jewellery",
+    "sex": "Women",
+    "productType": "Bracelet",
+    "isBestSeller": false,
+    "price": "€12,800",
+    "image": "/products/buccellati-macri.png",
+    "shortDescription": "Intricate honeycomb texture with diamond accents.",
+    "description": "Intricate honeycomb texture with diamond accents. The Macri Classica collection showcases Buccellati's legendary goldsmithing techniques, featuring the signature rigato engraving that creates a distinctive shimmering honeycomb pattern.",
+    "details": {
+      "specifications": [
+        { "label": "Collection", "value": "Macri Classica" },
+        { "label": "Width", "value": "12mm" },
+        { "label": "Diamonds", "value": "18" },
+        { "label": "Carat Weight", "value": "0.35ct" }
+      ],
+      "materials": ["18K Yellow Gold", "18K White Gold Trim", "Brilliant Cut Diamonds"],
+      "features": ["Rigato Engraving", "Hinged Design", "Italian Artisanship", "Secret Clasp"]
+    }
+  },
+  {
+    "id": "17",
+    "name": "Jaeger-LeCoultre Reverso",
+    "category": "Watch",
+    "sex": "Unisex",
+    "productType": "Manual",
+    "isBestSeller": false,
+    "price": "€11,200",
+    "image": "/products/jlc-reverso.png",
+    "shortDescription": "The legendary reversible case for polo players.",
+    "description": "The legendary reversible case for polo players. Created in 1931 for British officers in India, the Reverso's swiveling case was designed to protect the crystal during polo matches. Today, it stands as an Art Deco masterpiece and a symbol of refined elegance.",
+    "details": {
+      "specifications": [
+        { "label": "Reference", "value": "Q2438520" },
+        { "label": "Movement", "value": "Caliber 822/2" },
+        { "label": "Case Size", "value": "42.9 x 25.5mm" },
+        { "label": "Water Resistance", "value": "30 meters" },
+        { "label": "Power Reserve", "value": "45 hours" },
+        { "label": "Winding", "value": "Manual" }
+      ],
+      "materials": ["Stainless Steel Case", "Black Alligator Strap", "Silver Dial"],
+      "features": ["Reversible Case", "Engravable Caseback", "Art Deco Design", "Small Seconds"]
+    }
+  },
+  {
+    "id": "18",
+    "name": "Pomellato Nudo Ring",
+    "category": "Jewellery",
+    "sex": "Women",
+    "productType": "Ring",
+    "isBestSeller": false,
+    "price": "€3,200",
+    "image": "/products/pomellato-nudo.png",
+    "shortDescription": "Geometric gemstone in a contemporary nude setting.",
+    "description": "Geometric gemstone in a contemporary nude setting. The Nudo collection features a distinctive setting that reveals the gemstone's natural beauty from all angles. Its modern design and vibrant colors have made it a contemporary jewelry icon.",
+    "details": {
+      "specifications": [
+        { "label": "Collection", "value": "Nudo Petit" },
+        { "label": "Stone", "value": "Blue Topaz" },
+        { "label": "Stone Size", "value": "10mm" },
+        { "label": "Ring Width", "value": "8mm" }
+      ],
+      "materials": ["18K Rose Gold", "Blue Topaz", "Polished Finish"],
+      "features": ["Naked Setting", "Faceted Stone", "Stackable Design", "Italian Design"]
+    }
+  }
+]

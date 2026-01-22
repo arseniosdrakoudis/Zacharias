@@ -10,6 +10,8 @@ import { useLanguage } from "@/i18n";
 export function ContactSection() {
   const { t } = useLanguage();
   const [formState, setFormState] = useState({
+    name: "",
+    phone: "",
     email: "",
     message: "",
   });
@@ -25,7 +27,7 @@ export function ContactSection() {
     
     setIsSubmitting(false);
     setIsSubmitted(true);
-    setFormState({ email: "", message: "" });
+    setFormState({ name: "", phone: "", email: "", message: "" });
     
     // Reset success message after 5 seconds
     setTimeout(() => setIsSubmitted(false), 5000);
@@ -93,6 +95,50 @@ export function ContactSection() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col">
+                  {/* Name Field */}
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
+                      {t.contactPage.nameLabel}
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formState.name}
+                      onChange={handleChange}
+                      required
+                      placeholder={t.contactPage.namePlaceholder}
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy/50 focus:border-burgundy transition-all duration-200 text-foreground placeholder:text-muted-foreground/60"
+                    />
+                  </div>
+
+                  {/* Phone Field */}
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
+                      {t.contactPage.phoneLabel}
+                    </label>
+                    <div className="relative">
+                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formState.phone}
+                        onChange={handleChange}
+                        required
+                        placeholder={t.contactPage.phonePlaceholder}
+                        className="w-full pl-12 pr-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-burgundy/50 focus:border-burgundy transition-all duration-200 text-foreground placeholder:text-muted-foreground/60"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email Field */}
                   <div>
                     <label
                       htmlFor="email"
@@ -161,7 +207,7 @@ export function ContactSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-8"
+            className="flex flex-col gap-8 h-full"
           >
             {/* Contact Details Card */}
             <div className="bg-card border border-border/50 rounded-2xl p-8 md:p-10 shadow-lg shadow-black/5">
@@ -219,12 +265,12 @@ export function ContactSection() {
             </div>
 
             {/* Map Embed */}
-            <div className="bg-card border border-border/50 rounded-2xl overflow-hidden shadow-lg shadow-black/5">
+            <div className="bg-card border border-border/50 rounded-2xl overflow-hidden shadow-lg shadow-black/5 flex-1 min-h-[250px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.5!2d33.0783345!3d34.6929155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14e0ccacf29c0f51%3A0x70c694d36f1996b8!2sZacharias%20Watches%20%26%20Jewellery!5e0!3m2!1sen!2scy!4v1705856000000!5m2!1sen!2scy"
                 width="100%"
-                height="250"
-                style={{ border: 0 }}
+                height="100%"
+                style={{ border: 0, minHeight: '250px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

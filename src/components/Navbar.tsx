@@ -33,8 +33,8 @@ export function Navbar({ forceScrolled = false }: NavbarProps) {
   }, [forceScrolled]);
 
   const navItems = [
-    { label: t.nav.watches, href: "#watches" },
-    { label: t.nav.jewellery, href: "#jewellery" },
+    { label: t.nav.watches, href: "/watches" },
+    { label: t.nav.jewellery, href: "/jewellery" },
     { label: t.nav.about, href: "/about" },
     { label: t.nav.contact, href: "/contact" },
   ];

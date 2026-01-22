@@ -51,6 +51,7 @@ export const en = {
     sectionDescription:
       "Discover our most sought-after timepieces and jewellery, each chosen for its exceptional quality and timeless appeal.",
     quickView: "Quick View",
+    viewDetails: "View Details",
     inquire: "Inquire About This Piece",
     bookViewing: "Book a Viewing",
     productDetails: "Product details for",
@@ -106,6 +107,7 @@ export const en = {
   footer: {
     navigation: "Navigation",
     contact: "Contact",
+    findUs: "Find Us",
     copyright: "All rights reserved.",
     privacy: "Privacy Policy",
     terms: "Terms of Service",
@@ -115,6 +117,48 @@ export const en = {
   productCategories: {
     watch: "Watch",
     jewellery: "Jewellery",
+  },
+
+  // Product Page
+  productPage: {
+    backToCollection: "Back to Collection",
+    inquire: "Inquire About This Piece",
+    bookViewing: "Book a Private Viewing",
+    productNotFound: "Product Not Found",
+    productNotFoundDescription: "The product you're looking for doesn't exist or has been removed.",
+    specifications: "Specifications",
+    materials: "Materials",
+    features: "Features",
+  },
+
+  // Catalog Page
+  catalogPage: {
+    sectionLabel: "Our Collection",
+    watchesTitle: "Luxury Watches",
+    watchesDescription: "Discover our curated selection of exceptional timepieces from the world's most prestigious maisons.",
+    jewelleryTitle: "Fine Jewellery",
+    jewelleryDescription: "Explore our exquisite collection of fine jewellery, crafted to celebrate life's most precious moments.",
+    searchPlaceholder: "Search products...",
+    filters: "Filters",
+    sexLabel: "For",
+    typeLabel: "Type",
+    clearFilters: "Clear filters",
+    showingResults: "Showing {count} of {total} products",
+    noResults: "No products match your criteria.",
+    sexOptions: {
+      Men: "Men",
+      Women: "Women",
+      Unisex: "Unisex",
+    },
+    typeOptions: {
+      Automatic: "Automatic",
+      Quartz: "Quartz",
+      Manual: "Manual",
+      Ring: "Ring",
+      Bracelet: "Bracelet",
+      Necklace: "Necklace",
+      Earrings: "Earrings",
+    },
   },
 
   // Business Info
@@ -131,6 +175,10 @@ export const en = {
       "We'd love to hear from you. Whether you have a question about our collections, services, or anything else, our team is ready to answer all your questions.",
     formTitle: "Send Us a Message",
     formSubtitle: "Fill out the form below and we'll get back to you shortly.",
+    nameLabel: "Your Name",
+    namePlaceholder: "Enter your full name",
+    phoneLabel: "Your Phone",
+    phonePlaceholder: "Enter your phone number",
     emailLabel: "Your Email",
     emailPlaceholder: "Enter your email address",
     messageLabel: "Your Message",

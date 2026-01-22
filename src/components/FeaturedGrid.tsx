@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { products } from "@/data/products";
 import { Product } from "@/types";
 import { Card, CardContent } from "@/components/ui/card";
@@ -36,51 +37,57 @@ function ProductCard({ product, index, onQuickView, translations }: ProductCardP
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
     >
-      <Card className="group overflow-hidden border-border/50 hover:border-burgundy/30 transition-all duration-300 bg-card card-hover-lift">
-        {/* Image Container */}
-        <div className="relative aspect-square overflow-hidden bg-white">
-          {/* Product Image */}
-          <Image
-            src={product.image}
-            alt={product.name}
-            fill
-            className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
-          />
-          
-          {/* Always-visible view hint */}
-          <div className="absolute top-3 right-3 p-2 rounded-full bg-background/80 text-muted-foreground opacity-60 group-hover:opacity-0 transition-opacity pointer-events-none">
-            <Eye className="w-3 h-3" />
+      <Link href={`/product/${product.id}`} className="block">
+        <Card className="group overflow-hidden border-border/50 hover:border-burgundy/30 transition-all duration-300 bg-card card-hover-lift">
+          {/* Image Container */}
+          <div className="relative aspect-square overflow-hidden bg-white">
+            {/* Product Image */}
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+            />
+            
+            {/* Always-visible view hint */}
+            <div className="absolute top-3 right-3 p-2 rounded-full bg-background/80 text-muted-foreground opacity-60 group-hover:opacity-0 transition-opacity pointer-events-none">
+              <Eye className="w-3 h-3" />
+            </div>
+            
+            {/* Quick View Button */}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onQuickView(product);
+              }}
+              className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-background/60 backdrop-blur-sm cursor-pointer"
+              aria-label={`${translations.quickView} ${product.name}`}
+            >
+              <span className="flex items-center gap-2 text-foreground font-medium text-sm bg-background/90 px-4 py-2 rounded-full border border-border/50">
+                <Eye className="w-4 h-4" />
+                {translations.quickView}
+              </span>
+            </button>
           </div>
-          
-          {/* Quick View Button */}
-          <button
-            onClick={() => onQuickView(product)}
-            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-background/60 backdrop-blur-sm cursor-pointer"
-            aria-label={`${translations.quickView} ${product.name}`}
-          >
-            <span className="flex items-center gap-2 text-foreground font-medium text-sm bg-background/90 px-4 py-2 rounded-full border border-border/50">
-              <Eye className="w-4 h-4" />
-              {translations.quickView}
-            </span>
-          </button>
-        </div>
 
-        {/* Content */}
-        <CardContent className="p-4">
-          <Badge
-            variant="secondary"
-            className="mb-2 text-xs font-normal bg-burgundy/10 text-burgundy border-0"
-          >
-            {translations.categoryLabel}
-          </Badge>
-          <h3 className="font-medium text-foreground text-sm mb-1 line-clamp-1">
-            {product.name}
-          </h3>
-          {product.price && (
-            <p className="text-muted-foreground text-sm">{product.price}</p>
-          )}
-        </CardContent>
-      </Card>
+          {/* Content */}
+          <CardContent className="p-4">
+            <Badge
+              variant="secondary"
+              className="mb-2 text-xs font-normal bg-burgundy/10 text-burgundy border-0"
+            >
+              {translations.categoryLabel}
+            </Badge>
+            <h3 className="font-medium text-foreground text-sm mb-1 line-clamp-1">
+              {product.name}
+            </h3>
+            {product.price && (
+              <p className="text-muted-foreground text-sm">{product.price}</p>
+            )}
+          </CardContent>
+        </Card>
+      </Link>
     </motion.div>
   );
 }
@@ -91,8 +98,8 @@ interface ProductQuickViewProps {
   onClose: () => void;
   translations: {
     productDetails: string;
+    viewDetails: string;
     inquire: string;
-    bookViewing: string;
     categoryLabel: string;
   };
 }
@@ -137,18 +144,22 @@ function ProductQuickView({ product, isOpen, onClose, translations }: ProductQui
               </p>
             )}
             
-            {product.description && (
+            {product.shortDescription && (
               <p className="text-muted-foreground leading-relaxed mb-6">
-                {product.description}
+                {product.shortDescription}
               </p>
             )}
 
             <div className="flex flex-col gap-3 mt-auto">
-              <Button className="bg-burgundy hover:bg-burgundy/90 text-white">
-                {translations.inquire}
+              <Button asChild className="bg-burgundy hover:bg-burgundy/90 text-white">
+                <Link href={`/product/${product.id}`}>
+                  {translations.viewDetails}
+                </Link>
               </Button>
-              <Button variant="outline" className="border-foreground/20">
-                {translations.bookViewing}
+              <Button asChild variant="outline" className="border-foreground/20">
+                <Link href="/contact">
+                  {translations.inquire}
+                </Link>
               </Button>
             </div>
           </div>
@@ -200,7 +211,7 @@ export function FeaturedGrid() {
 
         {/* Product Grid */}
         <div className="product-grid">
-          {products.map((product, index) => (
+          {products.filter(p => p.isBestSeller).map((product, index) => (
             <ProductCard
               key={product.id}
               product={product}
@@ -221,8 +232,8 @@ export function FeaturedGrid() {
           onClose={() => setIsQuickViewOpen(false)}
           translations={{
             productDetails: t.featured.productDetails,
-            inquire: t.featured.inquire,
-            bookViewing: t.featured.bookViewing,
+            viewDetails: t.featured.viewDetails,
+            inquire: t.productPage.inquire,
             categoryLabel: selectedProduct ? getCategoryLabel(selectedProduct.category) : "",
           }}
         />

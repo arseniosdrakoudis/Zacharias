@@ -51,6 +51,7 @@ export const el = {
     sectionDescription:
       "Ανακαλύψτε τα πιο περιζήτητα ρολόγια και κοσμήματά μας, επιλεγμένα για την εξαιρετική ποιότητα και διαχρονική τους γοητεία.",
     quickView: "Γρήγορη Προβολή",
+    viewDetails: "Δείτε Λεπτομέρειες",
     inquire: "Ρωτήστε για αυτό το Κομμάτι",
     bookViewing: "Κλείστε Προβολή",
     productDetails: "Λεπτομέρειες προϊόντος για",
@@ -106,6 +107,7 @@ export const el = {
   footer: {
     navigation: "Πλοήγηση",
     contact: "Επικοινωνία",
+    findUs: "Βρείτε μας",
     copyright: "Με επιφύλαξη παντός δικαιώματος.",
     privacy: "Πολιτική Απορρήτου",
     terms: "Όροι Χρήσης",
@@ -115,6 +117,48 @@ export const el = {
   productCategories: {
     watch: "Ρολόι",
     jewellery: "Κόσμημα",
+  },
+
+  // Product Page
+  productPage: {
+    backToCollection: "Πίσω στη Συλλογή",
+    inquire: "Ρωτήστε για αυτό το Κομμάτι",
+    bookViewing: "Κλείστε Ιδιωτική Προβολή",
+    productNotFound: "Το Προϊόν δεν Βρέθηκε",
+    productNotFoundDescription: "Το προϊόν που αναζητάτε δεν υπάρχει ή έχει αφαιρεθεί.",
+    specifications: "Προδιαγραφές",
+    materials: "Υλικά",
+    features: "Χαρακτηριστικά",
+  },
+
+  // Catalog Page
+  catalogPage: {
+    sectionLabel: "Η Συλλογή μας",
+    watchesTitle: "Πολυτελή Ρολόγια",
+    watchesDescription: "Ανακαλύψτε τη φροντισμένη επιλογή μας από εξαιρετικά ρολόγια από τους πιο διάσημους οίκους του κόσμου.",
+    jewelleryTitle: "Εκλεκτά Κοσμήματα",
+    jewelleryDescription: "Εξερευνήστε την εξαιρετική συλλογή μας από κοσμήματα, δημιουργημένα για να γιορτάζουν τις πιο πολύτιμες στιγμές της ζωής.",
+    searchPlaceholder: "Αναζήτηση προϊόντων...",
+    filters: "Φίλτρα",
+    sexLabel: "Για",
+    typeLabel: "Τύπος",
+    clearFilters: "Καθαρισμός φίλτρων",
+    showingResults: "Εμφάνιση {count} από {total} προϊόντα",
+    noResults: "Κανένα προϊόν δεν ταιριάζει με τα κριτήριά σας.",
+    sexOptions: {
+      Men: "Άνδρες",
+      Women: "Γυναίκες",
+      Unisex: "Unisex",
+    },
+    typeOptions: {
+      Automatic: "Αυτόματο",
+      Quartz: "Χαλαζία",
+      Manual: "Χειροκίνητο",
+      Ring: "Δαχτυλίδι",
+      Bracelet: "Βραχιόλι",
+      Necklace: "Κολιέ",
+      Earrings: "Σκουλαρίκια",
+    },
   },
 
   // Business Info
@@ -131,6 +175,10 @@ export const el = {
       "Θα χαρούμε να ακούσουμε νέα σας. Είτε έχετε ερώτηση για τις συλλογές μας, τις υπηρεσίες μας ή οτιδήποτε άλλο, η ομάδα μας είναι έτοιμη να απαντήσει σε όλες τις ερωτήσεις σας.",
     formTitle: "Στείλτε μας Μήνυμα",
     formSubtitle: "Συμπληρώστε τη φόρμα και θα επικοινωνήσουμε μαζί σας σύντομα.",
+    nameLabel: "Το Όνομά σας",
+    namePlaceholder: "Εισάγετε το πλήρες όνομά σας",
+    phoneLabel: "Το Τηλέφωνό σας",
+    phonePlaceholder: "Εισάγετε τον αριθμό τηλεφώνου σας",
     emailLabel: "Το Email σας",
     emailPlaceholder: "Εισάγετε τη διεύθυνση email σας",
     messageLabel: "Το Μήνυμά σας",
