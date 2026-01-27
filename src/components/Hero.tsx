@@ -2,17 +2,19 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import { ChevronDown, Pause, Play } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "@/i18n";
+
+// AVIF clips configuration - add more clips here as they become available
+const HERO_CLIPS = ["/hero-clip-1.avif"];
 
 export function Hero() {
   const prefersReducedMotion = useReducedMotion();
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [useVideoFallback, setUseVideoFallback] = useState(false);
+  const [currentClipIndex, setCurrentClipIndex] = useState(0);
+  const [isClipLoaded, setIsClipLoaded] = useState(false);
+  const [useFallback, setUseFallback] = useState(false);
   const { t } = useLanguage();
 
   // Check for slow connection and reduced motion preference
@@ -24,52 +26,62 @@ export function Hero() {
         connection?.effectiveType === "slow-2g" ||
         connection?.effectiveType === "2g"
       ) {
-        setUseVideoFallback(true);
+        setUseFallback(true);
       }
     }
 
     // Reduced motion preference
     if (prefersReducedMotion) {
-      setUseVideoFallback(true);
+      setUseFallback(true);
     }
   }, [prefersReducedMotion]);
 
-  const toggleVideo = () => {
-    if (videoRef.current) {
-      if (isVideoPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsVideoPlaying(!isVideoPlaying);
+  // Preload next clip when current one loads (for multi-clip support)
+  useEffect(() => {
+    if (!isClipLoaded || HERO_CLIPS.length <= 1) return;
+
+    const nextIndex = (currentClipIndex + 1) % HERO_CLIPS.length;
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.type = "image/avif";
+    link.href = HERO_CLIPS[nextIndex];
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, [isClipLoaded, currentClipIndex]);
+
+  const handleClipLoad = () => {
+    setIsClipLoaded(true);
+  };
+
+  // Cycle to next clip (for future multi-clip support)
+  const cycleToNextClip = () => {
+    if (HERO_CLIPS.length > 1) {
+      setCurrentClipIndex((prev) => (prev + 1) % HERO_CLIPS.length);
+      setIsClipLoaded(false);
     }
   };
 
-  const handleVideoLoad = () => {
-    setIsVideoLoaded(true);
-  };
-
-  // Determine if we should show video or static poster
-  const showVideo = !useVideoFallback && !prefersReducedMotion;
+  // Determine if we should show animated AVIF or static fallback
+  const showAnimatedClip = !useFallback && !prefersReducedMotion;
 
   return (
     <section className="hero relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video/Image Background */}
-      {showVideo ? (
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/hero-poster.jpg"
-          onLoadedData={handleVideoLoad}
-          className="hero-video"
+      {/* AVIF/Image Background */}
+      {showAnimatedClip ? (
+        <img
+          src={HERO_CLIPS[currentClipIndex]}
+          alt=""
+          onLoad={handleClipLoad}
+          onAnimationIteration={cycleToNextClip}
+          className="hero-avif"
           aria-hidden="true"
-        >
-          {/* Video source - will use poster as fallback until video file is added */}
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
+          fetchPriority="high"
+          decoding="async"
+        />
       ) : (
         /* Static poster fallback for reduced motion / slow connections */
         <div
@@ -147,24 +159,6 @@ export function Hero() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Video Pause/Play Control - only shows when video is loaded */}
-      {showVideo && isVideoLoaded && (
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 1 }}
-          onClick={toggleVideo}
-          className="absolute bottom-24 right-6 md:right-10 p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 z-10"
-          aria-label={isVideoPlaying ? t.hero.pauseVideo : t.hero.playVideo}
-        >
-          {isVideoPlaying ? (
-            <Pause className="w-4 h-4 text-white" />
-          ) : (
-            <Play className="w-4 h-4 text-white" />
-          )}
-        </motion.button>
-      )}
 
       {/* Scroll Indicator - positioned relative to section */}
       <motion.div

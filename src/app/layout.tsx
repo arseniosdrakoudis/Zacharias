@@ -46,7 +46,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Preload hero poster for optimal LCP */}
+        {/* Preload hero AVIF clip for optimal LCP */}
+        <link
+          rel="preload"
+          href="/hero-clip-1.avif"
+          as="image"
+          type="image/avif"
+          fetchPriority="high"
+        />
+        {/* Keep JPG as fallback preload for unsupported browsers */}
         <link
           rel="preload"
           href="/hero-poster.jpg"

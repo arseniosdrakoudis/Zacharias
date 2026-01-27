@@ -85,6 +85,7 @@ export function ProductDetail({ productId }: ProductDetailProps) {
               src={product.image}
               alt={product.name}
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-contain p-8"
               priority
             />

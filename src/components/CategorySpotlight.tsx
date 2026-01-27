@@ -62,6 +62,8 @@ export function CategorySpotlight() {
                     src={category.image}
                     alt={category.title}
                     fill
+                    priority={index < 2}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   
