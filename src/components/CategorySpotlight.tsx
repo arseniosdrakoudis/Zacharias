@@ -74,7 +74,7 @@ export function CategorySpotlight() {
                   <div className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-burgundy/30 transition-colors duration-300" />
                   
                   {/* Content Overlay */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 bg-gradient-to-t from-background/90 via-background/40 to-transparent">
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 bg-gradient-to-t from-background/70 via-background/20 to-transparent">
                     <h3 className="font-serif text-2xl md:text-3xl font-medium text-foreground mb-2">
                       {category.title}
                     </h3>

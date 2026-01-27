@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "@/i18n";
 
 // AVIF clips configuration - add more clips here as they become available
-const HERO_CLIPS = ["/hero-clip-1.avif"];
+const HERO_CLIPS = ["/hero-clip-2.avif", "/hero-clip-1.avif", "/hero-clip-4.avif", "/hero-clip-3.avif"];
 
 export function Hero() {
   const prefersReducedMotion = useReducedMotion();
@@ -57,16 +57,20 @@ export function Hero() {
     setIsClipLoaded(true);
   };
 
-  // Cycle to next clip (for future multi-clip support)
-  const cycleToNextClip = () => {
-    if (HERO_CLIPS.length > 1) {
-      setCurrentClipIndex((prev) => (prev + 1) % HERO_CLIPS.length);
-      setIsClipLoaded(false);
-    }
-  };
-
   // Determine if we should show animated AVIF or static fallback
   const showAnimatedClip = !useFallback && !prefersReducedMotion;
+
+  // Auto-cycle clips with timer (animated AVIFs don't fire animation events)
+  useEffect(() => {
+    if (!showAnimatedClip || HERO_CLIPS.length <= 1) return;
+
+    const clipDuration = 6000; // 6 seconds per clip
+    const timer = setInterval(() => {
+      setCurrentClipIndex((prev) => (prev + 1) % HERO_CLIPS.length);
+    }, clipDuration);
+
+    return () => clearInterval(timer);
+  }, [showAnimatedClip]);
 
   return (
     <section className="hero relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -76,7 +80,6 @@ export function Hero() {
           src={HERO_CLIPS[currentClipIndex]}
           alt=""
           onLoad={handleClipLoad}
-          onAnimationIteration={cycleToNextClip}
           className="hero-avif"
           aria-hidden="true"
           fetchPriority="high"
